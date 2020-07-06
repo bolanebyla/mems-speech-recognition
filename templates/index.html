@@ -16,13 +16,13 @@
         div.id = 'messages';
         let start = document.createElement('button');
         start.id = 'start';
-        start.innerHTML = 'Start';
+        start.innerHTML = 'Запись аудио';
         let stop = document.createElement('button');
         stop.id = 'stop';
-        stop.innerHTML = 'Stop';
-        document.body.appendChild(div);
+        stop.innerHTML = 'Остановить запись';
         document.body.appendChild(start);
         document.body.appendChild(stop);
+        document.body.appendChild(div);
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
                 const mediaRecorder = new MediaRecorder(stream);
