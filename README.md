@@ -26,6 +26,7 @@ nginx + gunicorn + flask
     }`
 
 
+
 ## Настройка Let's Encrypt
     $ sudo apt install python-certbot-nginx
     $ sudo certbot --nginx -d host_name.com
