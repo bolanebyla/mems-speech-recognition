@@ -6,10 +6,10 @@ nginx + gunicorn + flask
 ##Для работы проекта, нужен ffmpeg
 Установка ffmpeg
     - для windows: вставить папку bin в папку с проектом
-    - для linux: `sudo apt-get install ffmpeg`
-    
+    - для linux: sudo apt-get install ffmpeg
 ##Конфигурация nginx
-`server {
+
+server {
     listen 80;
     server_name host_name.com;
 
@@ -26,8 +26,11 @@ nginx + gunicorn + flask
         proxy_pass http://127.0.0.1:8080;
     }
 
-`
+
 
 ## Настройка Let's Encrypt
-    -`sudo apt install python-certbot-nginx`
-    -`udo certbot --nginx -d host_name.com`
+    - sudo apt install python-certbot-nginx
+    - sudo certbot --nginx -d host_name.com
+
+jok asd
+asd
