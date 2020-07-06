@@ -59,17 +59,13 @@
             if (promise.ok) {
                 let response = await promise.json();
                 console.log(response.data);
-                let audio = document.createElement('audio');
-                audio.src = response.data;
-                audio.controls = true;
-                audio.autoplay = true;
-                document.querySelector('#messages').appendChild(audio);
+                let predict = document.createElement('div');
+                predict.innerHTML = response.data;
+                document.querySelector('#messages').appendChild(predict);
             }
         }
 
     </script>
-    
-    <h1>{{ result }} </h1>
 </body>
 
 </html>
