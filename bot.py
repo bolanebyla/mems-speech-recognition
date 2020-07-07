@@ -22,7 +22,6 @@ def voice_processing(message):
 
     file_info = bot.get_file(message.voice.file_id)
     audio = requests.get('https://api.telegram.org/file/bot{0}/{1}'.format(TOKEN, file_info.file_path)).content
-    print(audio)
 
     with open("uploads/bot/audio_file.Ogg", "wb") as file:
         file.write(audio)
