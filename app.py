@@ -42,7 +42,8 @@ def index():
         return data
 
 @app.route('/bot/' + TOKEN, methods=['GET', 'POST'])
-def webhook(request):
+def webhook():
+    print('пришло', request)
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return 'ok', 200
 
