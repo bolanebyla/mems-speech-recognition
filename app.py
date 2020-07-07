@@ -7,14 +7,11 @@ from flask import request
 from flask import render_template
 from bot import *
 
-#from model import get_model, get_prediction
+from model import get_prediction
 
 app = flask.Flask(__name__, template_folder='templates', static_folder='static')
 
-CLASSES = ['ГРУСТЬ', 'МЕМ']  # Классы команд (без фона)
 
-#model = get_model()
-#model.load_weights("model-cnn.h5")
 
 uploads_dir = os.path.join(app.instance_path, 'uploads')
 
@@ -35,8 +32,7 @@ def index():
              '-hide_banner'])  # Перезаписываем с нужной кодировкой
 
         wavfiles = 'uploads/web/recording.wav'  # Имя очередного файла
-        #prediction = get_prediction(wavfiles, model, CLASSES)  # Предсказание модели
-        prediction = 'тестовый предикт web'
+        prediction = get_prediction(wavfiles)  # Предсказание модели
         print(prediction)
         data = json.dumps({'data': prediction})  # Записываем в json
         return data

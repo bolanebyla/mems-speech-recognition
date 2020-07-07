@@ -13,6 +13,9 @@ channel = 1  # количество каналов
 n_classes = 3  # Количество классов команд
 
 
+CLASSES = ['ГРУСТЬ', 'МЕМ']  # Классы команд (без фона)
+
+
 ##########################
 # Объявим функцию создания модели нейросети
 ##########################
@@ -34,6 +37,11 @@ def get_model():
                   metrics=[
                       'accuracy'])  # компилируем, составляем модель с алгоритмом оптимизации, функцией потерь и метрикой точности
     return model
+
+
+model = get_model()
+model.load_weights("model-cnn.h5")
+
 
 
 ##########################
@@ -108,7 +116,7 @@ def predict(namefile, model, min_count=2, rate=0.9,
     return out, pred, g_pred  # Возращаем массив с данными, массив с классами команд, массив с softmax данными
 
 
-def get_prediction(wavfiles, model, classes):
+def get_prediction(wavfiles, model=model, classes=CLASSES):
     result = ''
     out, pred, _ = predict(wavfiles, model=model, min_count=3, rate=0.7,
                            hole=2)  # Вызываем predict для очередного файла
@@ -119,3 +127,5 @@ def get_prediction(wavfiles, model, classes):
                     elem[2] * 100) + ' %)'  # Выводим название
 
     return result
+
+
