@@ -1,7 +1,9 @@
+import os
+import random
 import telebot
 import requests
 import subprocess
-from model import get_prediction
+from prediction import get_prediction_text
 
 TOKEN = '1378189568:AAFcZV-g3lmahSZlcB1_9PnerNrTiVNvo_4'
 HOST = '341088-cs07173.tmweb.ru/'
@@ -34,9 +36,20 @@ def voice_processing(message):
          '-hide_banner'])  # Перезаписываем с нужной кодировкой
 
     wavfiles = 'uploads/bot/audio_file.wav'  # Имя очередного файла
-    prediction = get_prediction(wavfiles)  # Предсказание модели
-    print(prediction)
-    bot.send_message(chat_id=chat_id, text=prediction)
+    prediction_text, class_name = get_prediction_text(wavfiles)  # Предсказание модели
+    print(prediction_text, class_name)
+
+    bot.send_message(chat_id=chat_id, text=prediction_text)
+
+    # Отправляем изображение, если команда распознана
+    if class_name:
+        if class_name == 'МЕМ':
+            directory = 'static/img/memes/'
+            photo = open(os.path.join(directory , random.choice(os.listdir(directory))), 'rb')
+        else:
+            directory = 'static/img/sadness/'
+            photo = open(os.path.join(directory, random.choice(os.listdir(directory))), 'rb')
+        bot.send_photo(chat_id=chat_id, photo=photo)
 
 
 if __name__ == '__main__':
