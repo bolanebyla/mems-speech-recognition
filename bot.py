@@ -15,7 +15,10 @@ bot.set_webhook(url=HOST + 'bot/' + TOKEN)
 @bot.message_handler(commands=['start'])
 def start_message(message):
     chat_id = message.chat.id
-    bot.send_message(chat_id=chat_id, text='Привет!\n')
+    bot.send_message(chat_id=chat_id, text='Привет!')
+    bot.send_message(chat_id=chat_id, text='Доступные голосовые команды:\n'
+                                           '- МЕМ\n'
+                                           '- ГРУСТЬ')
 
 
 @bot.message_handler(content_types=['voice'])
