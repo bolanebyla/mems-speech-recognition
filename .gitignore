@@ -5,3 +5,4 @@ __pycache__
 /venv_linux/
 *.wav
 *.Ogg
+ffmpeg.exe
