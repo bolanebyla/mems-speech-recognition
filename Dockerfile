@@ -11,4 +11,4 @@ EXPOSE 8080
 
 RUN chmod a+x ./run.sh
 
-ENTRYPOINT ["./run_gunicorn.sh"]
+ENTRYPOINT ["./run.sh"]
