@@ -7,7 +7,8 @@ from prediction import get_prediction_text
 
 TOKEN = os.environ.get('TG_TOKEN')
 HOST = os.environ.get('HOST')
-
+print(TOKEN)
+print(HOST)
 bot = telebot.TeleBot(TOKEN, threaded=False)
 bot.set_webhook(url=HOST + 'bot/' + TOKEN)
 
