@@ -1,7 +1,7 @@
 
 # mems-speech-recognition
 Чат бот и web-приложение с использованием нейронной сети для обработки двух голосовых команд: "Грусть" и "Мем". 
-
+[@mems_speech_recognition_bot](https://telegram.me/mems_speech_recognition_bot)
 ## Стек разработки
 Python 3.7
 
