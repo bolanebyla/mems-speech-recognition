@@ -9,11 +9,6 @@ Nginx + Gunicorn + Flask
 
 Нейросеть: keras
 
-## Установка ffmpeg
-- для windows: вставить файл ffmpeg.exe в папку с проектом (скачать сборку ffmpeg
-можно по [ссылке](https://ffmpeg.zeranoe.com/builds/), ffmpeg.exe внутри bin)
-- для linux: `$ sudo apt-get install ffmpeg`
-
 ## Конфигурация nginx
 
     server {
@@ -34,10 +29,24 @@ Nginx + Gunicorn + Flask
     }
 
 
-
 ## Установка и настройка Let's Encrypt
     $ sudo apt install python-certbot-nginx
     $ sudo certbot --nginx -d host_name.com
 
-## Запуск проекта 
-    ./run.sh
+## Запуск проекта с помощью docker (docker-compose)
+1. Указать переменные окружения в файле `docker-compose.yaml`:
+    - `TG_token` - токен бота в telegram
+    - `HOST` - адрес сервера (пример: https://excample.com/)
+ 2. В директории проекта `$ docker-compose up ` 
+(флаг `-d` - запуск в фоне)
+
+## Запуск проекта без docker
+1. Установка ffmpeg
+    - для windows: вставить файл ffmpeg.exe в папку с проектом (скачать сборку ffmpeg
+    можно по [ссылке](https://ffmpeg.zeranoe.com/builds/), ffmpeg.exe внутри bin)
+    - для linux: `$ sudo apt-get install ffmpeg`
+2. Установка libsndfile1 (linux) `$ apt-get install libsndfile1`
+3. Установка библиотек `$ pip install -r requirements.txt`
+3. Запуск проекта `./run.sh`
+
+    
