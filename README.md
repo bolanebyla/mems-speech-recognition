@@ -40,4 +40,4 @@ Nginx + Gunicorn + Flask
     $ sudo certbot --nginx -d host_name.com
 
 ## Запуск проекта 
-    ./run_gunicorn.sh
+    ./run.sh
