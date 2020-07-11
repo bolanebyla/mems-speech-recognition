@@ -5,8 +5,9 @@ import requests
 import subprocess
 from prediction import get_prediction_text
 
-TOKEN = '1378189568:AAFcZV-g3lmahSZlcB1_9PnerNrTiVNvo_4'
-HOST = '341088-cs07173.tmweb.ru/'
+TOKEN = os.environ.get('TG_TOKEN')
+HOST = os.environ.get('HOST')
+
 bot = telebot.TeleBot(TOKEN, threaded=False)
 bot.set_webhook(url=HOST + 'bot/' + TOKEN)
 
