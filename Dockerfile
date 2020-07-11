@@ -6,8 +6,7 @@ WORKDIR /usr/src/app/
 
 COPY . /usr/src/app/
 RUN pip install --no-cache-dir -r requirements.txt
-RUN apt-get install libsndfile
-RUN apt-get install ffmpeg
+RUN apt-get -y update && apt-get install -y libsndfile && apt-get install -y ffmpeg
 
 EXPOSE 8080
 
