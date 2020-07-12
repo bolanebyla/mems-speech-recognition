@@ -47,6 +47,9 @@ Nginx + Gunicorn + Flask
     - для linux: `$ sudo apt-get install ffmpeg`
 2. Установка libsndfile1 (linux) `$ apt-get install libsndfile1`
 3. Установка библиотек `$ pip install -r requirements.txt`
-3. Запуск проекта `./run.sh`
+4. Указать переменные окружения:
+    - `TG_token` - токен бота в telegram
+    - `HOST` - адрес сервера (пример: https://excample.com/)
+5. Запуск проекта `./run.sh`
 
     
