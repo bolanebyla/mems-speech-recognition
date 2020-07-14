@@ -55,6 +55,7 @@ def voice_processing(message):
         bot.send_photo(chat_id=chat_id, photo=photo)
 
 
+
 if __name__ == '__main__':
     bot.skip_pending = True
     bot.remove_webhook()
